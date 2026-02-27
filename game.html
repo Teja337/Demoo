@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Rock Paper sissor</title>
+    </head>
+    <body>
+        <h1>Rock Paper Sissor</h1>
+        <button id="rock" onclick="play('rock')">🪨</button>
+        <button id="paper" onclick="play('paper')">📃</button>
+        <button id="sissor" onclick="play('sissor')">✂️</button>
+        <h3 id="result"></h3>
+        <h3 id="score"></h3>
+        <script>
+            let userscore=0;
+            let computerScore=0;
+            function play(userChoice)
+            {
+                const choices=['rock','paper','sissor'];
+                let computerChoice=choices[Math.floor(Math.random()*choices.length)]
+                let resultText=""
+                if(userChoice===computerChoice)
+            {
+                resultText=`Draw Match`
+            }
+            else if(userChoice==='rock'&&computerChoice==='sissor'||userChoice==='paper'&&computerChoice==='rock'||userChoice==='sissor'&&computerChoice==='paper')
+            {
+                resultText=`U Won the Match😎`
+                userscore++
+            }
+            else{
+                resultText=`U loss the Match😮`
+                computerScore++
+            }
+            document.getElementById("result").innerText=resultText;
+            document.getElementById("score").innerText=`Your score ${userscore} computerScore ${computerScore}`;
+            }
+        </script>
+    </body>
+</html>
